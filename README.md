@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Predix Protocol 🔮  
+**The Future, Priced In — Powered by CLOBs.**
 
-## Getting Started
+Predix is a **CLOB-based decentralized prediction market protocol** that enables users to trade on the outcomes of real-world events with the efficiency and transparency of an on-chain order book. Unlike AMM-based prediction markets, Predix uses a **Central Limit Order Book (CLOB)** design for deeper liquidity, tighter spreads, and more efficient price discovery.
 
-First, run the development server:
+---
 
+## ✨ Key Features
+- **CLOB-Powered Trading** – Place bids and asks directly in the order book for precise pricing.  
+- **Event Outcome Tokens** – Each market creates tradable YES/NO tokens (or multiple outcomes).  
+- **Decentralized Settlement** – Oracles (e.g., Chainlink, UMA) resolve event outcomes.  
+- **Open Market Creation** – Anyone can propose new event markets.  
+- **Transparent Matching Engine** – On-chain smart contracts guarantee fair matching of orders.  
+- **Liquidity Incentives** – Makers earn fees for providing liquidity.  
+
+---
+
+## 🛠️ How Predix Works
+
+1. **Market Creation**  
+   - Alice creates a market: *“Will ETH be above $3,000 on Dec 31, 2025?”*  
+   - The protocol deploys YES/NO outcome tokens linked to that event.  
+
+2. **Trading on the CLOB**  
+   - Traders submit **limit orders** (buy/sell) to the on-chain order book.  
+   - Orders are matched based on **price-time priority**.  
+
+3. **Oracle Resolution**  
+   - At event maturity, a decentralized oracle confirms the outcome.  
+   - Example: Chainlink reports ETH/USD price on Dec 31.  
+
+4. **Settlement**  
+   - Winning outcome token holders redeem tokens for **1 USDC per YES/NO share**.  
+   - Losing tokens are burned.  
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) v18+  
+- [Hardhat](https://hardhat.org/) or [Foundry](https://getfoundry.sh/)  
+- [MetaMask](https://metamask.io/) or compatible Web3 wallet  
+
+### Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Clone the repo
+git clone https://github.com/your-org/predix-protocol.git
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Navigate into the project
+cd predix-protocol
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Install dependencies
+npm install
