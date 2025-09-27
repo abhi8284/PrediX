@@ -1,54 +1,109 @@
-# Predix Protocol 🔮  
-**The Future, Priced In — Powered by CLOBs.**
+# PrediX Protocol 🔮
+**The Future, Priced In.**
 
-Predix is a **CLOB-based decentralized prediction market protocol** that enables users to trade on the outcomes of real-world events with the efficiency and transparency of an on-chain order book. Unlike AMM-based prediction markets, Predix uses a **Central Limit Order Book (CLOB)** design for deeper liquidity, tighter spreads, and more efficient price discovery.
-
----
-
-## ✨ Key Features
-- **CLOB-Powered Trading** – Place bids and asks directly in the order book for precise pricing.  
-- **Event Outcome Tokens** – Each market creates tradable YES/NO tokens (or multiple outcomes).  
-- **Decentralized Settlement** – Oracles (e.g., Chainlink, UMA) resolve event outcomes.  
-- **Open Market Creation** – Anyone can propose new event markets.  
-- **Transparent Matching Engine** – On-chain smart contracts guarantee fair matching of orders.  
-- **Liquidity Incentives** – Makers earn fees for providing liquidity.  
+PrediX is a **CLOB-based decentralized prediction market protocol** where anyone can trade on the outcomes of real-world events.  
+Unlike AMM-based markets, PrediX uses a **Central Limit Order Book (CLOB)** for precise pricing, deep liquidity, and efficient price discovery — similar to how traditional exchanges operate.
 
 ---
 
-## 🛠️ How Predix Works
+## 🌍 Why PrediX?
+
+Prediction markets are powerful tools for:
+- **Forecasting** – Crowdsourcing probabilities of real-world events.  
+- **Hedging** – Traders can hedge risks against uncertain outcomes.  
+- **Speculation** – Users profit from insights about future events.  
+- **Governance** – DAOs and protocols can integrate **futarchy** (governance via prediction markets).  
+
+PrediX makes these markets **transparent, decentralized, and accessible** to anyone with a crypto wallet.
+
+---
+
+## ✨ Core Features
+
+- **CLOB Trading Engine** – Place bids/asks in a fully on-chain order book with price-time priority.  
+- **Event Outcome Tokens** – Each market mints YES/NO tokens that represent potential outcomes.  
+- **Oracle-Based Resolution** – Outcomes resolved by decentralized oracles (Chainlink, UMA, or custom).  
+- **Trustless Settlement** – Winnings automatically distributed via smart contracts.  
+- **Market Creation** – Any user can create new event markets (sports, politics, crypto prices, governance).  
+- **Liquidity Incentives** – Makers earn fees for providing liquidity to the order book.  
+
+---
+
+## 🔄 How PrediX Works
 
 1. **Market Creation**  
-   - Alice creates a market: *“Will ETH be above $3,000 on Dec 31, 2025?”*  
-   - The protocol deploys YES/NO outcome tokens linked to that event.  
+   - A creator proposes a new event (e.g., *“Will ETH > $3,000 by Dec 31, 2025?”*).  
+   - Smart contracts deploy **YES** and **NO** outcome tokens.  
 
-2. **Trading on the CLOB**  
-   - Traders submit **limit orders** (buy/sell) to the on-chain order book.  
-   - Orders are matched based on **price-time priority**.  
+2. **Trading**  
+   - Traders place limit or market orders on the CLOB.  
+   - Matching engine pairs buyers and sellers based on **price-time priority**.  
+   - Collateral (e.g., USDC) is locked in escrow until resolution.  
 
-3. **Oracle Resolution**  
-   - At event maturity, a decentralized oracle confirms the outcome.  
-   - Example: Chainlink reports ETH/USD price on Dec 31.  
+3. **Resolution**  
+   - After event maturity, the Oracle confirms the outcome.  
+   - Example: Chainlink reports ETH/USD at $3,100 → **YES wins**.  
 
 4. **Settlement**  
-   - Winning outcome token holders redeem tokens for **1 USDC per YES/NO share**.  
+   - Winning token holders redeem their outcome tokens for **1 USDC each**.  
    - Losing tokens are burned.  
 
 ---
 
-## 🚀 Getting Started
+## 🏗️ Architecture
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) v18+  
-- [Hardhat](https://hardhat.org/) or [Foundry](https://getfoundry.sh/)  
-- [MetaMask](https://metamask.io/) or compatible Web3 wallet  
+### Smart Contracts
+- **MarketFactory.sol** → Deploys new markets & outcome tokens.  
+- **OrderBook.sol** → Handles bids/asks, order matching, and escrow.  
+- **OracleModule.sol** → Connects to Chainlink / UMA for outcomes.  
+- **SettlementEngine.sol** → Distributes winnings to correct outcome token holders.  
 
-### Installation
-```bash
-# Clone the repo
-git clone https://github.com/your-org/predix-protocol.git
+### Off-Chain Services
+- **Relayer/Indexer (optional)** → Improves order discovery & UI responsiveness (like dYdX / Injective).  
+- **Frontend App** → React + Next.js with Wagmi/RainbowKit for wallet connection.  
 
-# Navigate into the project
-cd predix-protocol
+---
 
-# Install dependencies
-npm install
+## 🧪 Example Trade
+
+- Bob places a **limit buy**: 100 YES @ $0.45.  
+- Carol places a **sell order**: 100 YES @ $0.45.  
+- Orders match → Bob gets YES tokens, Carol receives USDC.  
+- ETH ends above $3,000 → YES = 1 USDC → Bob redeems 100 USDC.  
+
+---
+
+## 🛠️ Tech Stack
+- **Smart Contracts**: Solidity + Hardhat / Foundry  
+- **Frontend**: React + Next.js + Wagmi / RainbowKit  
+- **Backend (optional)**: Node.js + Postgres / Supabase (for metadata + order history)  
+- **Oracles**: Chainlink, UMA, custom oracle modules  
+
+---
+
+## 📦 Planned Packages
+- `@predix/contracts` → Core Solidity contracts  
+- `@predix/sdk` → TypeScript SDK for dApp devs  
+- `@predix/app` → Frontend reference dApp  
+
+---
+
+## 🌐 Vision
+PrediX aims to become the **go-to decentralized prediction layer** for:  
+- **DeFi protocols** → Integrating futarchy for governance decisions.  
+- **Sports betting platforms** → Transparent, on-chain betting.  
+- **Financial forecasting** → Markets on macroeconomic outcomes (e.g., inflation, rates).  
+- **Crypto-native predictions** → Will BTC ETF be approved? Will ETH Flippening happen?  
+
+---
+
+## 🤝 Contributing
+We welcome contributions!  
+- Open issues for bugs or feature requests.  
+- Submit PRs to improve the codebase.  
+- Join our discussions on Discord to shape the protocol.  
+
+---
+
+## 📜 License
+MIT License © 2025 PrediX Protocol
